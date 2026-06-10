@@ -1,7 +1,11 @@
 import { Liquid } from "liquidjs";
 import { LIQUID_URL_PREFIX } from "./constants";
 import { createFetchFS } from "./fs-adapter";
-import { registerDefaultFilters, registerDefaultTags } from "./shims";
+import {
+	registerDefaultFilters,
+	registerDefaultTags,
+	resetAssetRegistry,
+} from "./shims";
 
 export interface RenderOptions {
 	/** Wait for specific custom elements to be defined before returning */
@@ -82,6 +86,10 @@ export async function render(
 	// Clean up previous test render
 	const existing = document.querySelector("[data-testroot]");
 	if (existing) existing.remove();
+
+	// Reset per-page asset dedup so {% stylesheet %} / {% javascript %} emit
+	// once per render() call (Shopify's "once per page").
+	resetAssetRegistry();
 
 	// Render Liquid → HTML string
 	const html = isLiquidTemplate(input)
