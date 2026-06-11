@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`content_for tag > "block" (static) > with type, id, and arbitrary params > renders the static block as a data island 1`] = `"<script type="application/json" data-testid="content-for-block" data-block-static="true" data-block-type="announcement" data-block-id="a1">{"type":"announcement","id":"a1","color":"red"}</script>"`;
+
+exports[`content_for tag > "blocks" (dynamic) > with a configured block > renders the block as a data island 1`] = `"<section><script type="application/json" data-testid="content-for-block" data-block-type="slide" data-block-id="s1">{"type":"slide","id":"s1","settings":{"heading":"Hello"}}</script></section>"`;

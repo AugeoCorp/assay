@@ -3,8 +3,8 @@
 # Tags
 
 - ✅ Parity: 20
-- ☑️ Mock: 1
-- Unsupported: 7
+- ☑️ Mock: 2
+- Unsupported: 6
 - **Total:** 28
 
 | Tag           | Status      |                                                            | Description                                                                                                                                                                                                                                                                                                                                |
@@ -14,7 +14,7 @@
 | `capture`     | ✅ LiquidJS | [🔗](https://shopify.dev/docs/api/liquid/tags/capture)     | Creates a new variable with a string value.                                                                                                                                                                                                                                                                                                |
 | `case`        | ✅ LiquidJS | [🔗](https://shopify.dev/docs/api/liquid/tags/case)        | Renders a specific expression depending on the value of a specific variable.                                                                                                                                                                                                                                                               |
 | `comment`     | ✅ LiquidJS | [🔗](https://shopify.dev/docs/api/liquid/tags/comment)     | Prevents an expression from being rendered or output.                                                                                                                                                                                                                                                                                      |
-| `content_for` |             | [🔗](https://shopify.dev/docs/api/liquid/tags/content_for) | Creates a designated area in your [theme](https://shopify.dev/themes/architecture) where blocks can be rendered.                                                                                                                                                                                                                           |
+| `content_for` | ☑️ Assay    | [🔗](https://shopify.dev/docs/api/liquid/tags/content_for) | Creates a designated area in your [theme](https://shopify.dev/themes/architecture) where blocks can be rendered.                                                                                                                                                                                                                           |
 | `continue`    | ✅ LiquidJS | [🔗](https://shopify.dev/docs/api/liquid/tags/continue)    | Causes a [`for` loop](/docs/api/liquid/tags/for) to skip to the next iteration.                                                                                                                                                                                                                                                            |
 | `cycle`       | ✅ LiquidJS | [🔗](https://shopify.dev/docs/api/liquid/tags/cycle)       | Loops through a group of strings and outputs them one at a time for each iteration of a [`for` loop](/docs/api/liquid/tags/for).                                                                                                                                                                                                           |
 | `decrement`   | ✅ LiquidJS | [🔗](https://shopify.dev/docs/api/liquid/tags/decrement)   | Creates a new variable, with a default value of -1, that's decreased by 1 with each subsequent call. &gt; Caution: &gt; Predefined Liquid objects can be overridden by variables with the same name. &gt; To make sure that you can access all Liquid objects, make sure that your variable name doesn't match a predefined object's name. |
