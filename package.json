@@ -52,7 +52,7 @@
 		"prepublishOnly": "npm run build"
 	},
 	"volta": {
-		"node": "24.10.0",
+		"node": "24.11.0",
 		"npm": "11.6.2"
 	},
 	"peerDependencies": {
