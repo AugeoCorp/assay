@@ -5,7 +5,8 @@
  * matter how many times the owning template renders. LiquidJS has no page-level
  * store that survives `{% render %}` (each spawns a fresh `Context` with empty
  * registers), so dedup lives here at module scope and is reset once per page by
- * `render()`. Tests render sequentially, so a shared module-level set is safe.
+ * `render()`. `render()` refuses to start while another is in flight, so a
+ * shared module-level set is safe.
  */
 
 const seen = new Set<string>();
