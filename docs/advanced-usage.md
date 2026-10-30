@@ -34,7 +34,10 @@ await render(
 | `data`                    | `Record<string, unknown>`  | Template variables                                                         |
 | `options.waitForElements` | `string[]`                 | Custom element tags to wait for before returning                           |
 
-Previous renders are cleaned up automatically.
+Previous renders are cleaned up automatically: the page holds one render at a
+time. When renders overlap, such as several in a `Promise.all`, the one that
+finishes last stays on the page. Each returned container still holds its own
+output.
 
 ## Inline Templates
 

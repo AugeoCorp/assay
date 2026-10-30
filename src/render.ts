@@ -83,10 +83,6 @@ export async function render(
 	const { waitForElements = [] } = options;
 	const engine = getEngine();
 
-	// Clean up previous test render
-	const existing = document.querySelector("[data-testroot]");
-	if (existing) existing.remove();
-
 	// Reset per-page asset dedup so {% stylesheet %} / {% javascript %} emit
 	// once per render() call (Shopify's "once per page").
 	resetAssetRegistry();
@@ -101,6 +97,10 @@ export async function render(
 	container.setAttribute("data-testroot", "");
 	container.innerHTML = html;
 	activateScripts(container);
+
+	// Swap out the previous root in the same task as the append, after the
+	// await, so overlapping renders can't each miss the other's root.
+	document.querySelector("[data-testroot]")?.remove();
 	document.body.appendChild(container);
 
 	// Wait for specified custom elements to upgrade
