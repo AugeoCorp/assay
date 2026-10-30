@@ -80,6 +80,30 @@ export async function render(
 	data: Record<string, unknown> = {},
 	options: RenderOptions = {},
 ): Promise<HTMLElement> {
+	if (rendering) {
+		throw new Error(
+			"render() was called while another render is still in flight. Await each render before starting the next.",
+		);
+	}
+	rendering = true;
+	try {
+		return await renderPage(input, data, options);
+	} finally {
+		rendering = false;
+	}
+}
+
+/**
+ * Whether a {@link render} is in flight. Renders share the DOM test root and
+ * the asset registry, so overlapping renders would clobber each other.
+ */
+let rendering = false;
+
+async function renderPage(
+	input: string | LiquidTemplate,
+	data: Record<string, unknown>,
+	options: RenderOptions,
+): Promise<HTMLElement> {
 	const { waitForElements = [] } = options;
 	const engine = getEngine();
 

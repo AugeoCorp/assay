@@ -34,7 +34,10 @@ await render(
 | `data`                    | `Record<string, unknown>`  | Template variables                                                         |
 | `options.waitForElements` | `string[]`                 | Custom element tags to wait for before returning                           |
 
-Previous renders are cleaned up automatically.
+Previous renders are cleaned up automatically. Await each `render` before
+starting the next: calling `render` while another is still in flight (for
+example `Promise.all([render(a), render(b)])`) throws. Vitest already runs test
+files in parallel.
 
 ## Inline Templates
 
